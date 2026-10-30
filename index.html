@@ -1,1 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Support Copilot — Grand Mobile</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Основная навигация">
+      <a class="brand-mark" href="#" aria-label="Support Copilot">S</a>
+      <button class="rail-button active" aria-label="Обращения" title="Обращения">▤</button>
+      <button class="rail-button" aria-label="Аналитика" title="Аналитика">◷</button>
+      <div class="rail-bottom"><span class="avatar small">А</span></div>
+    </aside>
 
+    <main class="workspace">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark inline">S</span>
+          <span>Support Copilot</span>
+          <span class="brand-divider">/</span>
+          <span class="muted">Очередь обращений</span>
+        </div>
+        <div class="topbar-right">
+          <span class="status-dot"></span>
+          <span>Демо режим</span>
+          <span class="avatar">А</span>
+        </div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">GRAND MOBILE · СЛУЖБА ПОДДЕРЖКИ</p>
+          <h1>Обращения</h1>
+          <p class="subtitle">Разбирайте жалобы и игровые репорты в одном месте.</p>
+        </div>
+        <button class="primary-button" id="newTicketButton">
+          <span>＋</span> Новое обращение
+        </button>
+      </section>
+
+      <section class="stats" aria-label="Сводка очереди">
+        <article class="stat-card">
+          <span class="stat-label">В очереди</span>
+          <strong id="statOpen">—</strong>
+          <span class="stat-note"><i class="mini-dot amber"></i> Требуют внимания</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Жалобы</span>
+          <strong id="statComplaints">—</strong>
+          <span class="stat-note">На действия игроков</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Репорты</span>
+          <strong id="statReports">—</strong>
+          <span class="stat-note">Игровые обращения</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Обработано сегодня</span>
+          <strong id="statDone">08</strong>
+          <span class="stat-note"><i class="mini-dot green"></i> Демо статистика</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <section class="queue panel" aria-label="Список обращений">
+          <div class="queue-heading">
+            <div>
+              <h2>Входящие</h2>
+              <span id="resultCount" class="muted small-text"></span>
+            </div>
+            <button id="sortButton" class="quiet-button">Сначала новые <span>⌄</span></button>
+          </div>
+
+          <div class="toolbar">
+            <label class="search-box">
+              <span>⌕</span>
+              <input id="searchInput" type="search" placeholder="Поиск по обращениям…" aria-label="Поиск по обращениям">
+            </label>
+            <div class="filters" role="group" aria-label="Фильтр по типу">
+              <button class="filter active" data-filter="all">Все <span id="countAll"></span></button>
+              <button class="filter" data-filter="complaint">Жалобы</button>
+              <button class="filter" data-filter="report">Репорты</button>
+            </div>
+          </div>
+
+          <div id="ticketList" class="ticket-list" aria-live="polite"></div>
+          <div id="emptyState" class="empty-state" hidden>
+            <span>⌕</span>
+            <strong>Ничего не найдено</strong>
+            <p>Попробуйте изменить запрос или фильтр.</p>
+          </div>
+          <div class="queue-footer">
+            <span>Показаны демонстрационные обращения</span>
+            <span>● Обновлено сейчас</span>
+          </div>
+        </section>
+
+        <section class="detail panel" id="detailPanel" aria-label="Карточка обращения"></section>
+      </section>
+
+      <footer class="privacy-note">
+        <span>ⓘ</span>
+        В этом прототипе используются только вымышленные примеры. Не загружайте сюда данные участников датасета.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
